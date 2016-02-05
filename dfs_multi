@@ -53,6 +53,16 @@ turtle.turnRight()
 end
 end
 
+-----------------throw() function here-------------------
+function throw()
+for i=1,16 do
+if(turtle.getItemDetail(i))
+then myItemTable=turtle.getItemDetail(i)
+if(myItemTable.name=="minecraft:cobblestone" or myItemTable.name=="minecraft:dirt" or myItemTable.name=="minecraft:gravel")
+then turtle.select(i) turtle.dropDown()
+end end end
+end
+
 function judge()
 myBool,myTable=turtle.inspect()
 if(myTable.name=="minecraft:stone") then return false end
@@ -136,14 +146,6 @@ end
 for i=1,5 do myUp() end
 
 throw()
------------------throw() function here-------------------
-function throw()
-for i=1,16 do
-if(turtle.getItemDetail(i))
-then myItemTable=turtle.getItemDetail(i)
-if(myItemTable.name=="minecraft:cobblestone" or myItemTable.name=="minecraft:dirt" or myItemTable.name=="minecraft:gravel")
-then turtle.select(i) turtle.dropDown()
-end end end
-end
+
 
 print("energy left:" .. turtle.getFuelLevel())
