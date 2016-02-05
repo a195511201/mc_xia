@@ -66,7 +66,7 @@ end
 function judge()
 myBool,myTable=turtle.inspect()
 if(myTable.name=="minecraft:stone") then return false end
-if(myTable.name==coal or myTable.name==redstone or myTable.name==iron or myTable.name==gold or myTable.name==lapis or myTable.name==emerald)
+if(myTable.name==coal or myTable.name==iron or myTable.name==gold or myTable.name==lapis or myTable.name==emerald)
 then return true --print(myTable.name)
 elseif (myTable.name==copper_ic or myTable.name==tin or myTable.name==uran or myTable.name==lead or myTable.name==forest_ore or myTable.name==tofu_ore or myTable.name==diamond_tofu_ore) then   return true
 elseif (myTable.name==diamond) then
@@ -79,7 +79,7 @@ end
 function judgeUp()
 myBool,myTable=turtle.inspectUp()
 if(myTable.name=="minecraft:stone") then return false end
-if(myTable.name==coal or myTable.name==redstone or myTable.name==iron or myTable.name==gold or myTable.name==lapis or myTable.name==emerald)
+if(myTable.name==coal or myTable.name==iron or myTable.name==gold or myTable.name==lapis or myTable.name==emerald)
 then return true --print(myTable.name)
 elseif (myTable.name==copper_ic or myTable.name==tin or myTable.name==uran or myTable.name==lead or myTable.name==forest_ore or myTable.name==tofu_ore or myTable.name==diamond_tofu_ore) then   return true
 elseif (myTable.name==diamond) then
@@ -92,7 +92,7 @@ end
 function judgeDown()
 myBool,myTable=turtle.inspectDown()
 if(myTable.name=="minecraft:stone") then return false end
-if(myTable.name==coal or myTable.name==redstone or myTable.name==iron or myTable.name==gold or myTable.name==lapis or myTable.name==emerald)
+if(myTable.name==coal or myTable.name==iron or myTable.name==gold or myTable.name==lapis or myTable.name==emerald)
 then return true --print(myTable.name)
 elseif (myTable.name==copper_ic or myTable.name==tin or myTable.name==uran or myTable.name==lead or myTable.name==forest_ore or myTable.name==tofu_ore or myTable.name==diamond_tofu_ore) then   return true
 elseif (myTable.name==diamond) then
