@@ -58,7 +58,7 @@ function throw()
 for i=1,16 do
 if(turtle.getItemDetail(i))
 then myItemTable=turtle.getItemDetail(i)
-if(myItemTable.name=="minecraft:cobblestone" or myItemTable.name=="minecraft:dirt" or myItemTable.name=="minecraft:gravel")
+if(myItemTable.name=="minecraft:cobblestone" or myItemTable.name=="minecraft:dirt" or myItemTable.name=="minecraft:gravel" or myItemTable.name=="minecraft:flint")
 then turtle.select(i) turtle.dropDown()
 end end end
 end
