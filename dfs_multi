@@ -16,7 +16,7 @@ gold="minecraft:gold_ore"
 emerald="minecraft:emerald_ore"
 diamond="minecraft:diamond_ore"
 lapis="minecraft:lapis_ore"
------------------这里是工业2,林业,豆腐的9种矿物---------------------
+-----------------this is nine ore in ic,fc,tofucraft---------------------
 copper_ic="IC2:blockOreCopper"
 tin="IC2:blockOreTin"
 uran="IC2:blockOreUran"
@@ -60,7 +60,7 @@ if(myTable.name==coal or myTable.name==redstone or myTable.name==iron or myTable
 then return true --print(myTable.name)
 elseif (myTable.name==copper_ic or myTable.name==tin or myTable.name==uran or myTable.name==lead or myTable.name==forest_ore or myTable.name==tofu_ore or myTable.name==diamond_tofu_ore) then   return true
 elseif (myTable.name==diamond) then
-----------发现钻石,先扔东西------------
+----------find diamond throw things------------
 throw()
    return true
 else return false
@@ -73,7 +73,7 @@ if(myTable.name==coal or myTable.name==redstone or myTable.name==iron or myTable
 then return true --print(myTable.name)
 elseif (myTable.name==copper_ic or myTable.name==tin or myTable.name==uran or myTable.name==lead or myTable.name==forest_ore or myTable.name==tofu_ore or myTable.name==diamond_tofu_ore) then   return true
 elseif (myTable.name==diamond) then
-----------发现钻石,先扔东西------------
+----------find diamond throw things------------
 throw()
  return true
 else return false
@@ -86,7 +86,7 @@ if(myTable.name==coal or myTable.name==redstone or myTable.name==iron or myTable
 then return true --print(myTable.name)
 elseif (myTable.name==copper_ic or myTable.name==tin or myTable.name==uran or myTable.name==lead or myTable.name==forest_ore or myTable.name==tofu_ore or myTable.name==diamond_tofu_ore) then   return true
 elseif (myTable.name==diamond) then
-----------发现钻石,先扔东西------------
+----------find diamond throw things------------
 throw()
  return true
 else return false
@@ -136,7 +136,7 @@ end
 for i=1,5 do myUp() end
 
 throw()
------------------throw()函数体,扔垃圾的-------------------
+-----------------throw() function here-------------------
 function throw()
 for i=1,16 do
 if(turtle.getItemDetail(i))
