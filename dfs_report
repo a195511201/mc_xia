@@ -1,0 +1,141 @@
+print("turtle has power:" .. turtle.getFuelLevel())
+print("Enter the limit")
+limit=read() limit=tonumber(limit)
+--print(type(limit))
+
+myBool=true
+myTable={}
+deepth=0
+lastdeepth=0
+findcounter=0
+coal="minecraft:coal_ore"
+iron="minecraft:iron_ore"
+redstone="minecraft:redstone_ore"
+gold="minecraft:gold_ore"
+emerald="minecraft:emerald_ore"
+diamond="minecraft:diamond_ore"
+lapis="minecraft:lapis_ore"
+function myForward()
+while not turtle.forward() do
+turtle.dig()
+turtle.attack()
+end
+end
+function myUp()
+while not turtle.up() do
+turtle.digUp()
+turtle.attackUp()
+end
+end
+function myDown()
+while not turtle.down() do
+turtle.digDown()
+turtle.attackDown()
+end
+end
+function myBack()
+if not turtle.back() then
+turtle.turnRight()
+turtle.turnRight()
+myForward()
+turtle.turnRight()
+turtle.turnRight()
+end
+end
+function report()
+if(deepth<=limit) then
+print("found diamond at:" .. deepth .. "deep (up)")
+else
+deepback=2*limit-deepth
+print("found diamond at:" .. deepback .. "deep (down)")
+end
+end
+
+function isanother()
+findcounter=findcounter+1
+if(findcounter==1) 
+then lastdeepth=deepth return true
+elseif(((deepth-lastdeepth)>3) or ((lastdeepth-deepth)>3))
+then lastdeepth=deepth return true 
+else return false
+end
+end
+
+function judge()
+myBool,myTable=turtle.inspect()
+if(myTable.name=="minecraft:stone") then return false end
+if(myTable.name==coal or myTable.name==redstone or myTable.name==iron or myTable.name==gold or myTable.name==lapis or myTable.name==emerald)
+then return true --print(myTable.name)
+elseif (myTable.name==diamond) then  if(isanother()) then report() end return false
+else return false
+end
+end
+function judgeUp()
+myBool,myTable=turtle.inspectUp()
+if(myTable.name=="minecraft:stone") then return false end
+if(myTable.name==coal or myTable.name==redstone or myTable.name==iron or myTable.name==gold or myTable.name==lapis or myTable.name==emerald)
+then return true --print(myTable.name)
+elseif (myTable.name==diamond) then  if(isanother()) then report() end return false
+else return false
+end
+end
+function judgeDown()
+myBool,myTable=turtle.inspectDown()
+if(myTable.name=="minecraft:stone") then return false end
+if(myTable.name==coal or myTable.name==redstone or myTable.name==iron or myTable.name==gold or myTable.name==lapis or myTable.name==emerald)
+then return true --print(myTable.name)
+elseif (myTable.name==diamond) then  if(isanother()) then report() end return false
+else return false
+end
+end
+
+function dfsDig()
+for i=1,4 do
+if(judge()) then
+myForward()
+dfsDig()
+myBack()
+end
+turtle.turnRight()
+end
+if(judgeUp()) then
+myUp()
+dfsDig()
+myDown()
+end
+if(judgeDown()) then
+myDown()
+dfsDig()
+myUp()
+end
+end
+----------------------------------------
+for i=1,limit do
+myForward()
+deepth=deepth+1
+dfsDig()
+end
+if(turtle.getFuelLevel()<2000) then
+for i=1,16 do
+turtle.select(i)
+turtle.refuel()
+end
+end
+turtle.turnRight() turtle.turnRight()
+for i=1,5 do myDown() end
+for i=1,limit do
+myForward()
+deepth=deepth+1
+dfsDig()
+end
+
+for i=1,5 do myUp() end
+
+for i=1,16 do
+if(turtle.getItemDetail(i))
+then myItemTable=turtle.getItemDetail(i)
+if(myItemTable.name=="minecraft:cobblestone" or myItemTable.name=="minecraft:dirt")
+then turtle.select(i) turtle.dropDown()
+end end end
+
+print("energy left:" .. turtle.getFuelLevel())
